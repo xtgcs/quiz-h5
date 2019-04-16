@@ -97,7 +97,8 @@ export default {
             this.$router.push({path:'detail',query:{focus_id:option}})
         },
         guess_record() {
-           this.$router.push({path:'record',query:{}})
+        //    this.$router.push({path:'record',query:{}})
+            this.$router.push({path:'record-weixin',query:{}})
         },
         projectRule() {
             this.show__rule = true

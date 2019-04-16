@@ -14,7 +14,7 @@ const router =  new Router({
       component: Home,
       meta: {
         title: '谁是少数派？瓜分积分换大奖！'
-    }
+      }
     },
     {
       path: '/detail',
@@ -22,7 +22,7 @@ const router =  new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/detail.vue'),
       meta: {
         title: '竞猜详情'
-    }
+      }
     },
     {
       path: '/prizeList',
@@ -30,7 +30,7 @@ const router =  new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/prizeList.vue'),
       meta: {
         title: '往期记录'
-    }
+      }
     },
     {
       path: '/record',
@@ -38,7 +38,15 @@ const router =  new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/record.vue'),
       meta: {
         title: '首页'
-    }
+      }
+    },
+    {
+      path: '/record-weixin',
+      name: 'record-weixin',
+      component: () => import(/* webpackChunkName: "about" */ './views/record-weixin.vue'),
+      meta: {
+        title: '微信记录'
+      }
     },
     {
       path: '/quizRecord',
@@ -46,7 +54,7 @@ const router =  new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/quizRecord.vue'),
       meta: {
         title: '竞猜记录'
-    }
+      }
     }
   ]
 })
