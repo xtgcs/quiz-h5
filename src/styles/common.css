@@ -1,0 +1,68 @@
+html {
+  height: 100%;
+  /* 解决body: min-heigth不生效的问题 */
+}
+
+body {
+  min-height: 100%;
+  /* 保持最小高度，用于内部组件设置颜色和布局 */
+  background-color: #f5f5f5;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  word-wrap: break-word;
+  font-size: 0.875rem;
+  /*14px;*/
+  font-family: -apple-system;
+  font-family: "-apple-system", "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+  line-height: 1.25rem;
+  /*20px;*/
+  text-rendering: optimizeLegibility;
+  -webkit-backface-visibility: hidden;
+  -webkit-user-drag: none;
+  -ms-content-zooming: none;
+}
+
+button {
+  outline: none;
+}
+
+button[disabled] {
+  opacity: .4;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+em,
+i {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
