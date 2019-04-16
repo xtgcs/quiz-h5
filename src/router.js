@@ -27,6 +27,11 @@ export default new Router({
       path: '/record',
       name: 'record',
       component: () => import(/* webpackChunkName: "about" */ './views/record.vue')
+    },
+    {
+      path: '/quizRecord',
+      name: 'quizRecord',
+      component: () => import(/* webpackChunkName: "about" */ './views/quizRecord.vue')
     }
   ]
 })
