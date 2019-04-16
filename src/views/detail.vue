@@ -50,8 +50,9 @@
       <div class="modal__box">
         <div>
           <label for="phone__num">手机号</label>
-          <input v-model="mobile_num" id="phone__num" class="phone__number__input" placeholder="请输入手机号" type="number">
+          <input @focus="phone_blur" v-model="mobile_num" id="phone__num" class="phone__number__input" placeholder="请输入手机号" type="number">
         </div>
+        <div v-show="phone_error" class="phone-error">手机号错误，请重新填写</div>
         <div class="phone-tip">请填写手机号，活动结束后，积分将通过线下方式发送到您的手机号</div>
         <!-- small-btn -->
         <div class="small__btn" @click.stop="confirmJoin">确定</div>
@@ -66,6 +67,7 @@ import Dialog from "@/components/common/Dialog.vue";
 import { projectDetail, confirm } from "../api.js";
 import { parseUrl } from "../util/http.js";
 import countDown from "@/components/common/count-down.component";
+import { delimiter } from 'path';
 
 export default {
   data() {
@@ -78,7 +80,8 @@ export default {
 			select_value: '',
       mobile_num: '',
       res_options__key: "",
-      res_options__value: ""
+      res_options__value: "",
+      phone_error: false
     };
   },
   components: {
@@ -90,7 +93,6 @@ export default {
 		this.focus_id = param.focus_id
     this.initPage();
   },
-
   methods: {
     initPage() {
 			console.log({'focus_id': parseInt(this.focus_id)})
@@ -126,6 +128,7 @@ export default {
 			if (this.select_value == '') {
 				alert("请选择你的观点")
 			} else {
+        this.phone_error = false
         this.mobile_num = ""
 				this.show__rule = true;
 			}
@@ -133,18 +136,29 @@ export default {
     closeModal() {
       this.show__rule = false;
     },
+    phone_blur() {
+      this.phone_error = false
+    },
+
     confirmJoin() {
       if (!this.mobile_num) {
         alert("请输入手机号")
         return
+      } else {
+        if (this.mobile_num.length != 11) {
+          this.phone_error = true
+          return
+        }
       }
       // request ajax
       confirm("focus/save", "POST", {"focus_id": parseInt(this.focus_id), "mobile": this.mobile_num, "option_number": this.res_options__key, "my_result": this.res_options__value}).then(res => {
         if (res.code == 0) {
-          
+          this.initPage()
         } else {
-          alert(res.msg || '网络错误，请稍后重试')
+          alert(res.data.msg || '网络错误，请稍后重试')
         }
+      }).catch(rej => {
+        alert('网络错误，请稍后重试')
       })
       this.show__rule = false;
     }
@@ -417,7 +431,6 @@ export default {
   font-weight: 400;
   color: rgba(69, 191, 254, 1);
   line-height: 20px;
-  padding-top: 26px;
   padding-left: 25px;
   text-align: center;
 }
@@ -472,5 +485,11 @@ export default {
   font-weight: 400;
   color: rgba(53, 53, 53, 1);
   line-height: 17px;
+}
+
+.phone-error {
+  font-size: 12px;
+  color: #ab2d2d;
+  text-indent: 80px;
 }
 </style>
