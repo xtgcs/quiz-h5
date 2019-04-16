@@ -2,7 +2,8 @@
     <div class="guess-record">
         <div class="guess-record-list">
             <div class="top">
- <div class="time">2019-02-21 15:54:45</div>
+                <div class="time">2019-02-21 15:54:45</div>
+                <div class="btn"></div>
             </div>
             <div class="title">过节了是否要给女友买礼物?</div>
             <div class="points">本期投入积分: 9999999</div>
