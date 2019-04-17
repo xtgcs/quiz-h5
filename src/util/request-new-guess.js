@@ -10,6 +10,7 @@ export const fetch = (config) => {
 		//创建axios实例，把基本的配置放进去
 		//  获取本地中的  accessToken
 		const access_token = storage.getItem('access_token')
+		console.log('access_token__request', access_token)
 		const sysType =  getPlatform() == 'weixin' ? 1 : 2
 		const requestUrl = getPlatform() == 'weixin' ? 'http://life-comment-api.canskj.cn' : 'http://life-comment-api.canskj.cn/app'
 		console.log('sysType', sysType, 'requestUrl', requestUrl)
