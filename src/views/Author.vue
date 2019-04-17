@@ -7,6 +7,7 @@ import { parseUrl } from "../util/http.js";
 
 export default {
   created() {
+		console.log("sssssssss")
     // 页面参数
     let param = parseUrl().params;
     // 地址栏没有code && 本地存储没有life_token
