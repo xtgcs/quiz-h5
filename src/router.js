@@ -5,11 +5,6 @@ import Home from './views/Home.vue'
 Vue.use(Router)
 
 const router =  new Router({
-<<<<<<< HEAD
-=======
-  // mode: 'history',
-  base: process.env.BASE_URL,
->>>>>>> 530d6db3deb3e7dcde3c73b546181b8ea6127a64
   routes: [
     {
       path: '/',
