@@ -12,11 +12,11 @@
             <div class="floor_bottom">
                 <div class="bottom_title">{{ item.title }}</div>
                 <!-- time-out -->
-                <div v-if="item.status == 3">
+                <div v-if="item.status == 1">
                     <countDown :end="item.end_time"></countDown>
                 </div>
 
-                <div class="status_str" v-if="item.status != 3">{{ item.status_str }}</div>
+                <div class="status_str" v-if="item.status != 1">{{ item.status_str }}</div>
             </div>
             <!-- btn-group -->
             <div class="btn-group flex" @click="jumpDetail(item.focus_id)">
@@ -124,6 +124,7 @@ export default {
 
 .container__box {
   padding-left: 11px;
+  padding-bottom: 40px;
 }
 
 .div__list {

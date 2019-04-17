@@ -34,7 +34,7 @@ export default {
 		console.log(this.end)
     if (this.end) {
 			let dateStr = new Date(this.lastTime.replace(/-/g, "/"));
-			this.lastTime = Date.parse(dateStr);
+			this.lastTime = Date.parse(dateStr)-new Date().getTime();
       setInterval(() => {
         this.countDown();
       }, 100);
