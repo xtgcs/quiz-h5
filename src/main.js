@@ -5,6 +5,11 @@ import store from './store'
 import './util/rem'
 import './styles/common.css'
 import './registerServiceWorker'
+import VConsole from 'vconsole'
+
+if (process.env.NODE_ENV === 'production') {
+  new VConsole()
+}
 
 Vue.config.productionTip = false
 
