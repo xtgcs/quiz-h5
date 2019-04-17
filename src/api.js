@@ -48,3 +48,15 @@ export const confirm = (url, type, data) => {
         })
     }
 }
+
+//竞猜记录
+export const pastRecord = (url, type, data) => {
+    //如果type为空，默认为post方法，也可以自己改成get
+    if (type === '')
+        type = 'get';
+    return fetch({
+        url: url,
+        method: type,
+        data: data,
+    })
+}
