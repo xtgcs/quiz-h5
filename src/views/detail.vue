@@ -379,7 +379,7 @@ export default {
 
 .confirm-btn {
   margin: 0 auto;
-  margin-top: 210px;
+  margin-top: 170px;
   width: 354px;
   height: 54px;
   line-height: 54px;
