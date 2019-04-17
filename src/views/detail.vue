@@ -89,6 +89,7 @@ export default {
     countDown
   },
   created() {
+    console.log(this.$route.query.focus_id);
 		let param = parseUrl().params
 		this.focus_id = param.focus_id
     this.initPage();
