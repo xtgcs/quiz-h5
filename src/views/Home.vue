@@ -61,6 +61,7 @@
 <script>
 import Dialog from "@/components/common/Dialog.vue";
 import { projectList } from '../api.js'
+import { parseUrl } from "../util/http.js";
 import countDown from "@/components/common/count-down.component";
 
 export default {

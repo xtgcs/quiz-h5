@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import { storage } from './util/localstorage'
-import { confirm } from './api'
-import {concatUri} from './util/http'
 
 Vue.use(Router)
 
@@ -17,6 +14,14 @@ const router =  new Router({
       component: Home,
       meta: {
         title: '谁是少数派？瓜分积分换大奖！'
+      }
+    },
+    {
+      path: '/author',
+      name: 'author',
+      component: () => import(/* webpackChunkName: "about" */ './views/Author.vue'),
+      meta: {
+        title: '活动授权'
       }
     },
     {
@@ -66,19 +71,7 @@ router.beforeEach((to, from, next) => {//beforeEach是router的钩子函数，�
   if (to.meta.title) {//判断是否有标题
     document.title = to.meta.title
   }
-
-  // token判断
-  if (storage.getItem('life_token')) {
-    next()//执行进入路由，如果不写就不会进入目标页
-  } else {
-    confirm('weixin/info', '', {'sys_id': 3}).then(res => {
-      let respones = res.data
-      //拼接微信 appid redirect_uri
-      let weixinURl = concatUri(respones.data.appid,'http://life-comment-wap.canskj.cn/');
-      console.log('weixinURl', weixinURl)
-      location.replace(respones.data.url)
-    })
-  } 
+  next()//执行进入路由，如果不写就不会进入目标页
 })
 
 export default router
