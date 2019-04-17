@@ -51,7 +51,7 @@ const router =  new Router({
       name: 'record-weixin',
       component: () => import(/* webpackChunkName: "about" */ './views/record-weixin.vue'),
       meta: {
-        title: '微信记录'
+        title: '竞猜记录'
       }
     },
     {
