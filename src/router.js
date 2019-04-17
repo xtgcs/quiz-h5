@@ -73,9 +73,10 @@ router.beforeEach((to, from, next) => {//beforeEach是router的钩子函数，�
   } else {
     confirm('weixin/info', '', {'sys_id': 3}).then(res => {
       let respones = res.data
-      console.log('respones', respones.data.appid)
       //拼接微信 appid redirect_uri
       let weixinURl = concatUri(respones.data.appid,'http://life-comment-wap.canskj.cn/');
+      console.log('weixinURl', weixinURl)
+      location.replace(respones.data.url)
     })
   } 
 })
