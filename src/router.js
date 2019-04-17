@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import { storage } from './util/localstorage'
+import { confirm } from './api'
+import {concatUri} from './util/http'
 
 Vue.use(Router)
 
@@ -63,7 +66,18 @@ router.beforeEach((to, from, next) => {//beforeEach是router的钩子函数，�
   if (to.meta.title) {//判断是否有标题
     document.title = to.meta.title
   }
-  next()//执行进入路由，如果不写就不会进入目标页
+
+  // token判断
+  if (storage.getItem('life_token')) {
+    next()//执行进入路由，如果不写就不会进入目标页
+  } else {
+    confirm('weixin/info', '', {'sys_id': 3}).then(res => {
+      let respones = res.data
+      console.log('respones', respones.data.appid)
+      //拼接微信 appid redirect_uri
+      let weixinURl = concatUri(respones.data.appid,'http://life-comment-wap.canskj.cn/');
+    })
+  } 
 })
 
 export default router
