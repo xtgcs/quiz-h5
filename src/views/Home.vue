@@ -49,7 +49,10 @@
             <p class="content-1">3、题目仅为A、B两种选项，选择后题不可更改，5天之后选择人数较少答案的用户，将奖池积分平局分给该答案的用户</p>
             <p class="content-1">4、每期积分奖池为10万积分；</p>
             <p class="content-1">5、积分将在X个工作日内发至登陆参与活动用户的账户中，请登录掌上国寿积分页面查询；</p>
-
+            <p class="content-1">6、活动期间，如果发现用户采用不正当的方式参与活动的，中国人寿电子商务有限公司取消其参与资格和中奖资格；</p>
+            <p class="content-1">7、本活动由中国人寿电子商务有限公司负最终解释权</p>
+            <p class="title-1">二、活动奖品</p>
+            <p class="content-1">活动期间共计发布5道问题，其中每道题持续时间5天时间，每次积分奖池为10万积分，共计活动发放50万积分</p>
         </div>
         <img class="close-btn" src="@/assets/close-btn.png" @click="closeModal"/>
     </Dialog>
