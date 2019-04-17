@@ -17,7 +17,7 @@
 
 <script>
 import { initPage } from "../api.js";
-import { projectDetail } from "../api.js";
+import { confirm } from "../api.js";
 
 export default {
   data() {
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     initPage() {
-      projectDetail("focus/log", "").then(res => {
+      confirm("focus/log", "").then(res => {
         let respones = res.data;
         if (respones.code == 0) {
           this.gussDetail = respones.data;
@@ -163,7 +163,7 @@ export default {
 }
 
 .btn-container-gray {
-	background:rgba(62,192,254,1);
+	background:rgb(160, 169, 173);
 }
 
 .btn-flex {
