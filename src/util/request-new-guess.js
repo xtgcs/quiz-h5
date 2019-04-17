@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { storage } from "./localstorage";
 import { confirm } from "../api";
-import { concatUri } from "./http";
+import { concatUri, getPlatform } from "./http";
 
 //定义fetch函数，config为配置
 export const fetch = (config) => {
@@ -10,15 +10,19 @@ export const fetch = (config) => {
 		//创建axios实例，把基本的配置放进去
 		//  获取本地中的  accessToken
 		const access_token = storage.getItem('access_token')
+		const sysType =  getPlatform() == 'weixin' ? 1 : 2
+		const requestUrl = getPlatform() == 'weixin' ? 'http://life-comment-api.canskj.cn' : 'http://life-comment-api.canskj.cn/app'
+		console.log('sysType', sysType, 'requestUrl', requestUrl)
 		const instance = axios.create({
 			//定义请求文件类型
 			headers: {
 				'Content-Type': 'application/json',
-				'accessToken': access_token
+				'accessToken': access_token,
+				'sysType': sysType
       },
 			timeout: 3000,
 			//定义请求根目录
-			baseURL: 'http://life-comment-api.canskj.cn'
+			baseURL: requestUrl
 		});
 		//请求成功后执行的函数
 		instance(config).then(res => {
