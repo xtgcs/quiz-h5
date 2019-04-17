@@ -17,7 +17,7 @@ export default {
 				storage.setItem('access_token', respones.accessToken)
 				console.log(storage.getItem('access_token'))
 				// 跳转到首页
-				this.$router.push({path:'/',query:{}})
+				// this.$router.push({path:'/',query:{}})
       });
     }
   }
