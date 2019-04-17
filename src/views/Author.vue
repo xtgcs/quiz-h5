@@ -14,7 +14,8 @@ export default {
       console.log("回掉到授权页面");
       confirm("weixin/callback", "", {'code': param.code, 'sys_id': 3}).then(res => {
         let respones = res.data;
-				storage.setItem('access_token', respones.accessToken)
+				window.localStorage.setItem('access_token', respones.accessToken)
+				console.log('token', respones.accessToken)
 				console.log(storage.getItem('access_token'))
 				// 跳转到首页
 				// this.$router.push({path:'/',query:{}})
