@@ -13,6 +13,20 @@ export const parseUrl = (url) => {
     return {uri, hash, params}
   }
 
+
+function ua() {
+  return navigator.userAgent.toLowerCase()
+}
+
+export function getPlatform() {
+  if (ua().indexOf('micromessenger') != -1) {
+    return 'weixin'
+  } else {
+    return 'app'
+  }
+}
+
 export function concatUri(appid, redirect_uri){
   return `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${encodeURIComponent(redirect_uri)}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`;
 }
+
