@@ -32,8 +32,8 @@ export const fetch = (config) => {
 				confirm('weixin/info', '', {'sys_id': 3}).then(res => {
 					let respones = res.data
 					// //拼接微信 appid redirect_uri
-					let weixinURl = concatUri(respones.data.appid,'http://life-comment-wap.canskj.cn/');
-					location.replace(weixinURl)
+					// let weixinURl = concatUri(respones.data.appid,'http://life-comment-wap.canskj.cn/');
+					location.replace(respones.data.url)
 				})
 			}
 			console.log(res);
