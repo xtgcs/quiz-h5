@@ -44,7 +44,7 @@ export default {
     countDown() {
       this.lastTime = this.lastTime - 100;
       if (this.lastTime <= 0) {
-        this.$emit("time-end");
+        this.$emit("endTime");
       }
       var t = this.lastTime;
       if (this.lastTime <= 0) {

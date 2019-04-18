@@ -12,7 +12,7 @@
           <div class="bottom_title">{{ gussDetail.title }}</div>
 					<!-- time-out -->
           <div v-if="gussDetail.status == 1">
-            <countDown :end="gussDetail.end_time"></countDown>
+            <countDown @endTime="endTime" :end="gussDetail.end_time"></countDown>
           </div>
 					<div class="status_str" v-if="gussDetail.status != 1">{{ gussDetail.status_str }}</div>
 
@@ -106,7 +106,11 @@ export default {
 					this.gussDetail.memo = str
         }
       });
-		},
+    },
+    // 倒计时
+    endTime() {
+      
+    },
 		click_left(options) {
       const key = Object.keys(options)
       this.res_options__key = key[0]
