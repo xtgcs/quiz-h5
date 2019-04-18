@@ -283,7 +283,7 @@ export default {
 .modal__box {
     padding-top: 27px;
     padding-left: 19px;
-    padding-right: 20px;
+    padding-right: 5px;
 }
 
 .list-1 {
