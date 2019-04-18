@@ -396,7 +396,7 @@ export default {
   font-size: 18px;
   position: fixed;
   bottom: 26px;
-  left: 21px;
+  left: 10px;
 }
 
 .confirm-btn-al {
