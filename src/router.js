@@ -62,6 +62,14 @@ const router =  new Router({
       meta: {
         title: '竞猜记录'
       }
+    },
+    {
+      path: '/winning',
+      name: 'winning',
+      component: () => import(/* webpackChunkName: "about" */ './views/winning.vue'),
+      meta: {
+        title: '中奖公告'
+      }
     }
   ]
 })
