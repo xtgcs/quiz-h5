@@ -112,7 +112,7 @@ export default {
 }
 
 .bounceLastTime__time {
-  width: 15px;
+  width: 18px;
   height: 15px;
   line-height: 15px;
   text-align: center;

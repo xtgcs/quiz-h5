@@ -1,6 +1,11 @@
 <template>
   <div class="guess-record">
-    <div class="guess-record-list" v-for="(item, index) in gussDetail" :key="index">
+    <!-- 空态页面 -->
+    <div class="no-data" v-if="gussDetail.length == 0 && init">
+      <img src="@/assets/no_data.png" alt="">
+      <p>您还没有参与哦请前往首页参与活动</p>
+    </div>
+    <div class="guess-record-list" v-if="gussDetail.length > 0" v-for="(item, index) in gussDetail" :key="index">
 			<div class="btn-flex flex">
 				<div class="time">{{item.end_time}}</div>
 				<div class="btn-container" v-if="item.is_success">竞猜成功</div>
@@ -22,7 +27,8 @@ import { confirm } from "../api.js";
 export default {
   data() {
     return {
-      gussDetail: []
+      gussDetail: [],
+      init: false
     };
   },
   created() {
@@ -31,6 +37,7 @@ export default {
   methods: {
     initPage() {
       confirm("focus/log", "").then(res => {
+        this.init = true
         let respones = res.data;
         if (respones.code == 0) {
           this.gussDetail = respones.data;
@@ -168,6 +175,26 @@ export default {
 
 .btn-flex {
 	align-items: center;
+}
+
+.no-data img {
+  width: 96px;
+  height: 93px;
+  margin-left: 140px;
+  margin-top: 130px;
+  margin-bottom: 20px;
+}
+
+.no-data p {
+  width:125px;
+  height:27px;
+  font-size:12px;
+  text-align: center;
+  font-family:SourceHanSansCN-Normal;
+  font-weight:400;
+  color:rgba(152,152,152,1);
+  line-height:17px;
+  margin-left: 125px;
 }
 </style>
 

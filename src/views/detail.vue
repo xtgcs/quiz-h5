@@ -157,7 +157,7 @@ export default {
       }
       // request ajax
       confirm("focus/save", "POST", {"focus_id": parseInt(this.focus_id), "mobile": this.mobile_num, "option_number": this.res_options__key, "my_result": this.res_options__value}).then(res => {
-        if (res.code == 0) {
+        if (res.data.code == 0) {
           this.initPage()
         } else {
           alert(res.data.msg || '网络错误，请稍后重试')
@@ -250,29 +250,6 @@ export default {
   line-height: 17px;
 }
 
-.bounceLastTime {
-  height: 15px;
-}
-
-.bounceLastTime__time {
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
-  text-align: center;
-  background: rgba(69, 155, 254, 1);
-  border-radius: 3px;
-  font-size: 12px;
-  color: #ffffff;
-}
-
-.bounceLastTime__colon {
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
-  text-align: center;
-  color: rgba(87, 177, 238, 1);
-  font-size: 12px;
-}
 
 .btn {
   text-align: center;
