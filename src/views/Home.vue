@@ -104,7 +104,7 @@ export default {
         //    this.$router.push({path:'record',query:{}})
             // 两种状态
             if (getPlatform() == 'weixin') {
-                his.$router.push({path:'record-weixin',query:{}})
+                this.$router.push({path:'record-weixin',query:{}})
             } else {
                 this.$router.push({path:'record',query:{}})
             }
