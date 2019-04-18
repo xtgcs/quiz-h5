@@ -384,7 +384,7 @@ export default {
 
 .confirm-btn {
   margin: 0 auto;
-  margin-top: 150px;
+  /* margin-top: 150px; */
   width: 354px;
   height: 54px;
   line-height: 54px;
@@ -394,6 +394,8 @@ export default {
   border-radius: 5px;
   color: #ffffff;
   font-size: 18px;
+  position: fixed;
+  bottom: 26px;
 }
 
 .confirm-btn-al {
