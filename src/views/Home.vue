@@ -64,7 +64,7 @@
 <script>
 import Dialog from "@/components/common/Dialog.vue";
 import { projectList } from '../api.js'
-import { parseUrl } from "../util/http.js";
+import { parseUrl, getPlatform } from "../util/http.js";
 import countDown from "@/components/common/count-down.component";
 
 export default {
@@ -102,7 +102,12 @@ export default {
         },
         guess_record() {
         //    this.$router.push({path:'record',query:{}})
-            this.$router.push({path:'record-weixin',query:{}})
+            // 两种状态
+            if (getPlatform() == 'weixin') {
+                his.$router.push({path:'record-weixin',query:{}})
+            } else {
+                this.$router.push({path:'record',query:{}})
+            }
         },
         projectRule() {
             this.show__rule = true
