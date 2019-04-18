@@ -144,6 +144,7 @@ export default {
 }
 
 .floor__top {
+    justify-content: space-between;
     align-items: center;
     height: 42px;
     border-bottom: 1px solid #C8DFF0;
@@ -156,7 +157,7 @@ export default {
 }
 
 .text {
-    margin-left: 104px;
+    margin-right: 20px;
     height: 17px;
     font-size: 12px;
     font-family: SourceHanSansCN-Normal;
