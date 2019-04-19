@@ -14,7 +14,7 @@
           <div v-if="gussDetail.status == 1">
             <countDown @endTime="endTime" :end="gussDetail.end_time"></countDown>
           </div>
-					<div class="status_str" v-if="gussDetail.status != 1">{{ gussDetail.status_str }}</div>
+					<div class="status_str" v-if="gussDetail.is_vote">{{ gussDetail.is_success ? '竞猜成功' : '竞猜失败' }}</div>
 
 					<div class="flex" style="margin-top: 10px">
 						<div class="text-join">{{gussDetail.join_user}}人已参与</div>
@@ -43,8 +43,9 @@
     </div>
     <!-- footer -->
     <div v-if="gussDetail.status == 1 && !gussDetail.is_vote" class="confirm-btn" @click="confirmBtn">确认参与</div>
-    <div v-if="gussDetail.status == 1 && gussDetail.is_vote" class="confirm-btn confirm-btn-al">已参与</div>
-    <div v-else class="confirm-btn confirm-btn-al">{{ gussDetail.status_str }}</div>
+    <!-- 已经参与 -->
+    <div v-if="gussDetail.is_vote" class="confirm-btn confirm-btn-al">已参与</div>
+    <div v-if="!gussDetail.is_vote && gussDetail.status != 1" class="confirm-btn confirm-btn-al">{{ gussDetail.status_str }}</div>
     <!--  -->
     <!-- 弹窗 -->
     <Dialog :value="show__rule">
