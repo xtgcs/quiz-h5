@@ -284,7 +284,7 @@ export default {
     width: 29px;
     height: 29px;
     margin-top: 22px;
-    margin-left: 124px;
+    margin-left: 134px;
 }
 
 .modal__box {
