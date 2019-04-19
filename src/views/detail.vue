@@ -53,7 +53,11 @@
           <label for="phone__num">手机号</label>
           <input @focus="phone_blur" v-model="mobile_num" id="phone__num" class="phone__number__input" placeholder="请输入手机号" type="number">
         </div>
-        <div v-show="phone_error" class="phone-error">手机号错误，请重新填写</div>
+
+        <div class="phone_error_box">
+          <div v-show="phone_error" class="phone-error">手机号错误，请重新填写</div>
+        </div>
+
         <div class="phone-tip">请填写手机号，活动结束后，积分将通过线下方式发送到您的手机号</div>
         <!-- small-btn -->
         <div class="small__btn" @click.stop="confirmJoin">确定</div>
@@ -405,6 +409,7 @@ export default {
 }
 
 .phone__number__input {
+  border-radius: 5px;
   margin-left: 18px;
   height: 30px;
 }
@@ -474,8 +479,14 @@ export default {
 }
 
 .phone-error {
+   height: 26px;
+   line-height: 26px;
   font-size: 12px;
   color: #ab2d2d;
   text-indent: 80px;
+}
+
+.phone_error_box {
+  height: 26px;
 }
 </style>
