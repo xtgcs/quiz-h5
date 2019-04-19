@@ -34,7 +34,7 @@
      <div class="footer flex">
         <div class="footer_text footer_text__left" @click="projectRule">活动规则</div>
         <div class="split-line"></div>
-        <div class="footer_text" @click="guess_record">竞猜记录</div>
+        <div class="footer_text" @click="guess_record">{{plat__form}}</div>
     </div>
 
     <!-- dialog -->
@@ -75,6 +75,7 @@ export default {
             str_hour: '',
             str_min: '',
             str_sec: '',
+            plat__form: '竞猜记录'
         }
     },
     components: {
@@ -87,6 +88,11 @@ export default {
     
     methods: {
         initPage() {
+            if (getPlatform() == 'weixin') {
+                this.plat__form = '竞猜记录'
+            } else {
+                this.plat__form = '往期记录'
+            }
             projectList('focus', '').then((res) => {
                 let respones = res.data
                 if (respones.code == 0) {
