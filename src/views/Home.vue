@@ -112,7 +112,7 @@ export default {
             if (getPlatform() == 'weixin') {
                 this.$router.push({path:'record-weixin',query:{}})
             } else {
-                this.$router.push({path:'record-weixin',query:{}})
+                this.$router.push({path:'record',query:{}})
             }
         },
         projectRule() {
