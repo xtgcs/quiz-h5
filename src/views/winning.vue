@@ -9,7 +9,7 @@
       <div class="phone_title">中奖名单</div>
       <div class="list_box">
         <div class="list" v-for="(item, index) in phones" :key="index">
-          <span class="number">{{index}}</span>
+          <span class="number">{{index+1}}</span>
           <div class="name">手机号: {{item}}</div>
         </div>
       </div>
