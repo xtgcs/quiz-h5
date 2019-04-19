@@ -45,8 +45,9 @@ export const requestWxInit = () => {
     wx.error(() => {
       console.log('error')
     })
+    console.log('respones', respoens)
     wx.config({
-      debug: false,
+      debug: true,
       appId: respoens.appId,
       timestamp: respoens.timestamp,
       nonceStr: respoens.nonceStr,
