@@ -412,7 +412,7 @@ export default {
   border-radius: 5px;
   margin-left: 18px;
   height: 30px;
-  width: 175px;
+  width: 173px;
   padding-left: 10px;
 }
 
