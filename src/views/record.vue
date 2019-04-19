@@ -6,7 +6,7 @@
       <div class="points">本期投入积分: {{item.integral}}</div>
       <div class="record" v-show="item.status == 3">竞猜结果: {{item.status_str}}</div>
       <div class="btn-gray" v-if="item.status == 2">等待结果</div>
-      <div class="btn" v-if="item.status == 3" @click="seeReport">查看中奖公告</div>
+      <div class="btn" v-if="item.status == 3" @click="seeReport(item.focus_id)">查看中奖公告</div>
     </div>
   </div>
 </template>
@@ -37,8 +37,8 @@ export default {
     goGongGao() {
       this.$router.push({ path: "prizeList", query: {} });
     },
-    seeReport() {
-      this.$router.push({ path: "winning", query: {} });
+    seeReport(option) {
+      this.$router.push({ path: "winning", query: {focus_id: option} });
     }
   }
 };

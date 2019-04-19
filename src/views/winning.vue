@@ -1,14 +1,14 @@
 <template>
   <div class="guess-record">
     <div class="guess-record-list">
-      <div class="time">2019-02-21 15:54:45</div>
-      <div class="title">你要不要给自己买一份养老保险？</div>
-      <div class="points">本期投入积分: 10000</div>
+      <div class="time">{{detail.end_time}}</div>
+      <div class="title">{{detail.title}}</div>
+      <div class="points">{{detail.integral}}</div>
     </div>
     <div class="phone_list">
       <div class="phone_title">中奖名单</div>
       <div class="list_box">
-        <div class="list" v-for="(item, index) in phoneList" :key="index">
+        <div class="list" v-for="(item, index) in phones" :key="index">
           <span class="number">{{index}}</span>
           <div class="name">手机号: {{item}}</div>
         </div>
@@ -19,26 +19,15 @@
 </template>
 
 <script>
-import { pastRecord } from "../api.js";
+import { confirm } from "../api.js";
+import { parseUrl } from "../util/http.js";
 export default {
   data() {
     return {
       list: [],
-      phones: [
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527,
-        18501342527
-      ]
+      phones: [],
+      focus_id: '',
+      detail: {}
     };
   },
   computed: {
@@ -47,14 +36,19 @@ export default {
     }
   },
   created() {
+    let param = parseUrl().params
+    this.focus_id = param.focus_id
+    console.log(this.focus_id)
     this.initPage();
   },
   methods: {
     initPage() {
-      pastRecord("focus/log", "").then(res => {
+      confirm("focus/placard", "", {'focus_id': this.focus_id}).then(res => {
+        console.log('res', res)
         let respones = res.data;
         if (respones.code == 0) {
-          this.list = respones.data;
+          this.phones = respones.data.list;
+          this.detail = respones.data
           console.log(this.list);
         }
       });

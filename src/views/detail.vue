@@ -42,7 +42,8 @@
       <p v-html="gussDetail.memo"></p>
     </div>
     <!-- footer -->
-    <div v-if="gussDetail.status == 1" class="confirm-btn" @click="confirmBtn">确认参与</div>
+    <div v-if="gussDetail.status == 1 && !gussDetail.is_vote" class="confirm-btn" @click="confirmBtn">确认参与</div>
+    <div v-if="gussDetail.status == 1 && gussDetail.is_vote" class="confirm-btn confirm-btn-al">已参与</div>
     <div v-else class="confirm-btn confirm-btn-al">{{ gussDetail.status_str }}</div>
     <!--  -->
     <!-- 弹窗 -->
