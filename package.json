@@ -16,7 +16,8 @@
     "vconsole": "^3.3.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "weixin-js-sdk": "^1.4.0-test"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.6.0",
@@ -29,6 +30,7 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "vconsole": "^3.3.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "weixin-js-sdk": "^1.4.0-test"
   }
 }

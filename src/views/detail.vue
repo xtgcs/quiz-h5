@@ -114,7 +114,12 @@ export default {
     },
     // 倒计时
     endTime() {
-      
+      confirm("focus/update", "POST", {'focus_id': parseInt(this.focus_id), 'status': 2}).then(res => {
+        if (res.data.code == 0) {
+          // 更新状态
+          this.initPage()
+        }
+      })
     },
 		click_left(options) {
       const key = Object.keys(options)

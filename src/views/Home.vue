@@ -64,7 +64,7 @@
 <script>
 import Dialog from "@/components/common/Dialog.vue";
 import { projectList } from '../api.js'
-import { parseUrl, getPlatform } from "../util/http.js";
+import { parseUrl, getPlatform, share } from "../util/http.js";
 import countDown from "@/components/common/count-down.component";
 
 export default {
@@ -84,6 +84,7 @@ export default {
     },
     created() {
         this.initPage()
+        share()
     },
     
     methods: {
