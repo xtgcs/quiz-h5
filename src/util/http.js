@@ -1,6 +1,6 @@
 
 import qs from 'qs'
-import wx from 'weixin-js-sdk'
+import wx from 'http://res.wx.qq.com/open/js/jweixin-1.4.0.js'
 import { confirm } from "../api.js";
 
 export const parseUrl = (url) => {
