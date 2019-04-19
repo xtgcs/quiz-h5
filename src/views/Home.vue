@@ -274,7 +274,8 @@ export default {
 
 .modal__box {
     width: 276px;
-    height: 480px;
+    height: 440px;
+    overflow-y: scroll;
     background:linear-gradient(-35deg,rgba(227,251,255,1),rgba(232,245,254,1));
     border-radius:5px;
 }
