@@ -82,7 +82,7 @@ export default {
   line-height: 42px;
   font-size: 14px;
   color: rgba(53, 53, 53, 1);
-  border-bottom: 1px solid #c7e0f0;
+  /* border-bottom: 1px solid #c7e0f0; */
 }
 .title {
   padding-left: 15px;
@@ -157,7 +157,8 @@ export default {
 }
 
 .btn-container {
-	margin-left: 100px;
+	/* margin-left: 100px; */
+  margin-right: 17px;
 	width:103px;
 	height:25px;
 	line-height: 25px;
@@ -175,6 +176,8 @@ export default {
 
 .btn-flex {
 	align-items: center;
+  border-bottom: 1px solid #c7e0f0;
+  justify-content: space-between;
 }
 
 .no-data img {
