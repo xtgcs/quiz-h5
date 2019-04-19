@@ -86,7 +86,7 @@ export default {
     created() {
         requestWxInit()
         this.initPage()
-        share()    
+        // share()    
     },
     
     methods: {
