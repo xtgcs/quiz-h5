@@ -57,7 +57,10 @@ export const share = () => {
     desc: '一起来做少数派，瓜分海量积分', // 分享描述
     link: 'http://life-comment-wap.canskj.cn', // 分享链接
     imgUrl: 'http://life-comment-wap.canskj.cn/img/jc_share.jpg', // 分享图标
+    type: 'link', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
     success: function () { 
+      console.log("success__one")
         // 用户确认分享后执行的回调函数
     },
     cancel: function () { 
@@ -72,6 +75,7 @@ export const share = () => {
     type: 'link', // 分享类型,music、video或link，不填默认为link
     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
     success: function () { 
+      console.log('success__two')
         // 用户确认分享后执行的回调函数
     },
     cancel: function () { 
