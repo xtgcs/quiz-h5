@@ -42,7 +42,7 @@
       <p v-html="gussDetail.memo"></p>
     </div>
     <!-- footer -->
-    <div v-if="gussDetail.is_click" class="confirm-btn" @click="confirmBtn(gussDetail.status)">{{ gussDetail.bottom_str }}</div>
+    <div v-if="gussDetail.is_click" class="confirm-btn" @click="confirmBtn(gussDetail.status, gussDetail.focus_id)">{{ gussDetail.bottom_str }}</div>
     <!-- 已经参与 -->
     <div v-else class="confirm-btn confirm-btn-al">{{ gussDetail.bottom_str }}</div>
     <!--  -->
@@ -134,9 +134,9 @@ export default {
 			this.select_right = true
 			this.select_left = false
 		},
-    confirmBtn(option) {
+    confirmBtn(option, id) {
       if(option == 3) {
-        this.$router.push({ path: "winning", query: {focus_id: option} });
+        this.$router.push({ path: "winning", query: {focus_id: id} });
         return
       }
 
