@@ -35,8 +35,8 @@ export function concatUri(appid, redirect_uri){
 
 
 export const requestWxInit = () => {
-  let url = window.encodeURIComponent(window.location.href)
-  confirm('message/share', "", {'url': "http%3a%2f%2flife-comment-wap.canskj.cn%2f"}).then(res => {
+  let url = window.encodeURL(window.location.href)
+  confirm('message/share', "", {'url': url}).then(res => {
     let respoens = res.data.data
 
     wx.ready(() => {
