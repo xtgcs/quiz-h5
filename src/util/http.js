@@ -35,7 +35,7 @@ export function concatUri(appid, redirect_uri){
 
 
 export const requestWxInit = () => {
-  let url = window.encodeURL(window.location.href)
+  let url = window.encodeURIComponent(window.location.href)
   confirm('message/share', "", {'url': url}).then(res => {
     let respoens = res.data.data
 
