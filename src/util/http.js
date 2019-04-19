@@ -1,6 +1,7 @@
 
 import qs from 'qs'
 import wx from 'weixin-js-sdk'
+import { confirm } from "../api.js";
 
 export const parseUrl = (url) => {
     url = url || window.location.href
@@ -34,20 +35,26 @@ export function concatUri(appid, redirect_uri){
 
 
 export const requestWxInit = () => {
-  wx.ready(() => {
-    console.log('ready')
+  let url = window.encodeURIComponent(window.location.href)
+  confirm('message/share', "", {'url': window.encodeURIComponent(url) }).then(res => {
+    let respoens = res.data.data
+
+    wx.ready(() => {
+      console.log('ready')
+    })
+    wx.error(() => {
+      console.log('error')
+    })
+    wx.config({
+      debug: false,
+      appId: respoens.appId,
+      timestamp: respoens.timestamp,
+      nonceStr: respoens.nonceStr,
+      signature: respoens.signature,
+      jsApiList: respoens.jsApiList
+    })
   })
-  wx.error(() => {
-    console.log('error')
-  })
-  wx.config({
-    debug: false,
-    appId: "wx5c2dff8c791802c2",
-    timestamp: 1555670393,
-    nonceStr: "TpOlp3WEQTIEJuk2",
-    signature: "063dc72532338cd68eb984f6b2ff52a019e65994",
-    jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone"]
-  })
+  
 }
 
 

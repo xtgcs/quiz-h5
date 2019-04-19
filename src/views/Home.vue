@@ -64,8 +64,9 @@
 <script>
 import Dialog from "@/components/common/Dialog.vue";
 import { projectList } from '../api.js'
-import { parseUrl, getPlatform, share } from "../util/http.js";
+import { parseUrl, getPlatform, share, requestWxInit } from "../util/http.js";
 import countDown from "@/components/common/count-down.component";
+import { setTimeout } from 'timers';
 
 export default {
     data() {
@@ -83,8 +84,9 @@ export default {
         countDown
     },
     created() {
+        requestWxInit()
         this.initPage()
-        share()
+        share()    
     },
     
     methods: {

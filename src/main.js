@@ -9,8 +9,6 @@ import Vconsole from 'vconsole';
 const vConsole = new Vconsole();
 Vue.use(vConsole)
 Vue.config.productionTip = false
-import { requestWxInit } from './util/http'
-requestWxInit()
 
 new Vue({
   router,
